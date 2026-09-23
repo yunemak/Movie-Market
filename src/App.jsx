@@ -65,7 +65,12 @@ const App = () => {
 		try {
 			const movies = await getTrendingMovies();
 
-			setTrendingMovies(movies);
+			const uniqueMovies = movies.filter(
+				(movie, index, self) =>
+					index ===
+					self.findIndex((m) => m.movie_id === movie.movie_id),
+			);
+			setTrendingMovies(uniqueMovies);
 		} catch (error) {
 			console.error(`Error fetching trending movies: ${error}`);
 		}
