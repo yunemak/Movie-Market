@@ -1,15 +1,20 @@
-import "./App.css";
-import Card from "./Card.jsx";
+import React from "react";
 
-function App() {
+const App = () => {
 	return (
-		<div className="app">
-			<h2>Hello World!</h2>
-			<Card title="War 1" />
-			<Card title="Star Wars" />
-			<Card title="Avatar" />
-		</div>
+		<main>
+			<div className="pattern" />
+			<div className="wrapper">
+				<header>
+					<h1>
+						Find <span className="text-gradient">Movies</span>{" "}
+						You'll Enjoy Without the Hassle
+					</h1>
+				</header>
+				<p>Search</p>
+			</div>
+		</main>
 	);
-}
+};
 
 export default App;
