@@ -1,7 +1,7 @@
 import "./App.css";
 
 function Card({ title }) {
-  return <div>{title}</div>;
+  return <h3 className="card">{title}</h3>;
 }
 
 export default Card;
