@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function Card({ title }) {
 	const [hasLiked, setHasLiked] = useState(false);
+
+	useEffect(() => {
+		console.log(`${title} has been: ${hasLiked ? "liked" : "disliked"}.`);
+	});
 
 	return (
 		<div className="card">
