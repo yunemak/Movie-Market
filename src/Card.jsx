@@ -7,7 +7,9 @@ function Card({ title }) {
 	return (
 		<div className="card">
 			<h3>{title}</h3>
-			<button onClick={() => setHasLiked(true)}>Like</button>
+			<button onClick={() => setHasLiked(!hasLiked)}>
+				{hasLiked ? "❤️" : "🤍"}
+			</button>
 		</div>
 	);
 }
