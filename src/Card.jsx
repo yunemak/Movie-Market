@@ -1,7 +1,15 @@
+import { useState } from "react";
 import "./App.css";
 
 function Card({ title }) {
-  return <h3 className="card">{title}</h3>;
+	const [hasLiked, setHasLiked] = useState(false);
+
+	return (
+		<div className="card">
+			<h3>{title}</h3>
+			<button onClick={() => setHasLiked(true)}>Like</button>
+		</div>
+	);
 }
 
 export default Card;
