@@ -9,7 +9,6 @@ const API_OPTIONS = {
 	method: "GET",
 	headers: {
 		accept: "application/json",
-		Authorization: `Bearer ${API_KEY}`,
 	},
 };
 
@@ -20,10 +19,17 @@ const App = () => {
 
 	const fetchMovies = async () => {
 		try {
-			const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+			const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
 
 			const response = await fetch(endpoint, API_OPTIONS);
-			throw new Error("Failed");
+
+			if (!response.ok) {
+				throw new Error("Failed to fetch movies!");
+			}
+
+			const data = await response.json();
+
+			console.log(data);
 		} catch (error) {
 			console.log(`Error fetching movies: ${error}`);
 			setErrorMessage("Error fetching movies. Please try again later.");
