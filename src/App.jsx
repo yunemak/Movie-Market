@@ -25,7 +25,7 @@ const App = () => {
 		setErrorMessage("");
 		try {
 			const endpoint = query
-				? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
+				? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&api_key=${API_KEY}`
 				: `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
 
 			const response = await fetch(endpoint, API_OPTIONS);
