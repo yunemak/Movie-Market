@@ -19,7 +19,7 @@ const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchMovies = async () => {
-		setIsloading(true);
+		setIsLoading(true);
 		setErrorMessage("");
 		try {
 			const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
@@ -68,8 +68,18 @@ const App = () => {
 				</header>
 				<section className="all-movies">
 					<h2>All Movies</h2>
-					{errorMessage && (
+					{isLoading ? (
+						<p className="text-white">Loading...</p>
+					) : errorMessage ? (
 						<p className="text-red-500">{errorMessage}</p>
+					) : (
+						<ul>
+							{movieList.map((movie) => {
+								return (
+									<p className="text-white">{movie.title}</p>
+								);
+							})}
+						</ul>
 					)}
 				</section>
 			</div>
